@@ -1,0 +1,2 @@
+import {describe,it,expect} from 'vitest'; import {render,screen} from '@testing-library/react'; import {MemoryRouter} from 'react-router-dom'; import App from './App.jsx';
+describe('mystery creation',()=>{it('shows fictional content notice and premise form',()=>{render(<MemoryRouter><App/></MemoryRouter>);expect(screen.getByRole('heading',{name:/every detail/i})).toBeTruthy();expect(screen.getByLabelText(/your premise/i)).toBeTruthy();expect(screen.getByText(/fictional and ai-generated/i)).toBeTruthy();});});

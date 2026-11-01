@@ -1,0 +1,2 @@
+const base=import.meta.env.VITE_API_BASE_URL||'http://localhost:5000/api/v1';
+export async function request(path,options={}){let response;try{response=await fetch(`${base}${path}`,{...options,headers:{'Content-Type':'application/json',...options.headers}});}catch{throw new Error('Network connection lost. Check your connection and try again.');}const data=await response.json();if(!response.ok)throw new Error(data.error?.message||'Something went wrong. Please try again.');return data;}
